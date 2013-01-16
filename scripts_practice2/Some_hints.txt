@@ -1,0 +1,16 @@
+db_operational=# create view v1_domain as (select '2+2'::character varying(8)  a
+s c1, (3+3)::integer as c2, '1013-02-02'::date as c3);
+
+
+
+
+
+
+db_operational=# create view v1_domain AS SELECT 3::character varying(8) as v1,
+123::integer as v2, NOW()::date as v3;
+
+
+db_operational=# create view v1_dataset as select * from v1 union (select * from
+ v1_domain);
+
+db_operational=# select * from v1_dataset;

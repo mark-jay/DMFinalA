@@ -1,0 +1,51 @@
+--#############
+--# Paulo Trigo
+--# OCT.2012
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+drop view if exists vl_domain;
+
+create view vl_domain as
+	select 2+2 ;
+
+select * from vl_domain;
+
+
+--you should use \copy because it allows a regular user to insert data from file
+--while copy only allows superuser to insert data from file. Also, copy is a server
+--command and \copy is a client command
+
+
+
+--==============================
+-- the COPY PostgreSQL statement
+-- (for detailed information see:
+-- a01_postgresql-9.2-A4.pdf, page 1222, or
+-- http://www.postgresql.org/docs/9.2/static/sql-copy.html)
+-- COPY ...
+;
+--==============================
+
+
+
+--==============================
+-- a different solution using the \COPY psql statement
+-- (for detailed information see:
+-- d01_psql_withPostgreSQL.pdf, or
+-- http://www.postgresql.org/docs/9.2/static/app-psql.html)
+-- \COPY ...
+--==============================
+
+

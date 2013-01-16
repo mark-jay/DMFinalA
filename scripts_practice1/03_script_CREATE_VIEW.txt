@@ -1,0 +1,46 @@
+--#############
+--# Paulo Trigo
+--# OCT.2012
+--#############
+
+
+--=============
+-- Ligação à BD
+--=============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+-- additional information about "client_encoding" in:
+-- http://www.postgresql.org/docs/9.2/static/multibyte.html
+\encoding WIN1250
+;
+
+---------------------------------
+DROP VIEW IF EXISTS v1;
+DROP VIEW IF EXISTS v2;
+---------------------------------
+
+CREATE VIEW v1 AS
+	SELECT r1.c1,r2.c2,c1_r4
+		FROM r1,r2,r3;
+
+
+SELECT * FROM v1;
+-----
+
+CREATE VIEW v2 AS
+	SELECT r1.c1, r3.c1_r1
+		FROM r1 LEFT JOIN 
+						r3 ON r1.c1 = r3.c1_r1;
+			
+
+SELECT * FROM v2;
+
+

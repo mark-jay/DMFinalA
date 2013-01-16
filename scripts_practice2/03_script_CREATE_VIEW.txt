@@ -1,0 +1,65 @@
+--#############
+--# Paulo Trigo
+--# OCT.2012
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+-- additional information about "client_encoding" in:
+-- http://www.postgresql.org/docs/9.2/static/multibyte.html
+\encoding WIN1250
+;
+
+
+---------------------------------
+DROP VIEW IF EXISTS v1_dataset;
+DROP VIEW IF EXISTS v1;
+DROP VIEW IF EXISTS v1_domain;
+DROP VIEW IF EXISTS v1_class;
+---------------------------------
+
+
+
+-- complete the following view in order to build
+-- the output data presented below at [OUT]
+-- CREATE VIEW v1( VC1, VC2, VC3 ) AS
+-- ;
+
+
+
+-- after completing the previous code uncomment the following 2 lines
+-- SELECT VC1, VC2, VC3
+-- FROM v1
+;
+
+
+
+CREATE VIEW V1 AS
+	SELECT r2.c1 AS vc1,r1.c1 AS vc2,r3.c1 AS vc3
+		FROM r2,r1,r3
+		WHERE (r2.c1_r1= r1.c1) AND (r3.c1_r1 = r1.c1)
+		ORDER BY vc3 ;
+
+SELECT * from v1;
+
+--==========================
+-- [OUT] The expected output
+--==========================
+--| vc1 | vc2 |    vc3
+--|-----+-----+------------
+--| 111 |   1 | 2012-01-31
+--| 111 |   1 | 2012-02-28
+--| 222 |   2 | 2012-03-31
+--|(3 rows)

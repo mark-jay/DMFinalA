@@ -1,0 +1,54 @@
+--#############
+--# Paulo Trigo
+--# OCT.2012
+--#############
+
+
+--=============
+-- Ligação à BD
+--=============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+
+---------------------------------
+DELETE FROM R2;
+DELETE FROM R3;
+DELETE FROM R1;
+DELETE FROM R4;
+---------------------------------
+
+
+
+-- add the code that enables to uncomment the next lines
+
+INSERT INTO R1( c1, c2, c3 ) VALUES( 1, 'aa', 'aaa' );
+INSERT INTO R4( c1 ) VALUES( 10);
+INSERT INTO R3( C1_R1, C1_R4, C1 ) VALUES( 1, 10, '2012-1-31' );
+
+
+
+-- add the code to isert at least 4 tuples for each table
+INSERT INTO R1( c1, c2, c3 ) VALUES( 2, 'aa2', 'aaa2' );
+INSERT INTO R4( c1 ) VALUES( 20);
+INSERT INTO R3( C1_R1, C1_R4, C1 ) VALUES( 2, 20, '2012-1-31' );
+
+INSERT INTO R1( c1, c2, c3 ) VALUES( 3, 'aa3', 'aaa3' );
+INSERT INTO R4( c1 ) VALUES( 30);
+INSERT INTO R3( C1_R1, C1_R4, C1 ) VALUES( 3, 30, '2012-1-31' );
+
+INSERT INTO R1( c1, c2, c3 ) VALUES( 4, 'aa4', 'aaa4' );
+INSERT INTO R4( c1 ) VALUES( 40);
+INSERT INTO R3( C1_R1, C1_R4, C1 ) VALUES( 4, 40, '2012-1-31' );
+
+INSERT INTO R1( c1, c2, c3 ) VALUES( 5, 'aa5', 'aaa5' );
+INSERT INTO R4( c1 ) VALUES( 50);
+INSERT INTO R3( C1_R1, C1_R4, C1 ) VALUES( 5, 50, '2012-1-31' );
+
